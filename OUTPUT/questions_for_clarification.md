@@ -1,0 +1,40 @@
+# Danh Sách Câu Hỏi Nghiệp Vụ Cần Làm Rõ (Questions For Clarification)
+
+| ID | D-code | Khía cạnh nghiệp vụ | Câu hỏi làm rõ gửi QA/BA | Các phương án gợi ý |
+|---|---|---|---|---|
+| Q-D01-01 | D01 | Loại mã freeship | Spec Function D chỉ nêu 2 loại mã (% và số tiền cố định). Hệ thống có loại mã freeship (giảm phí vận chuyển) trong phạm vi Function D không? | A. Không, chỉ có 2 loại % và số tiền cố định<br>B. Có, mã freeship cũng áp dụng tại ô "Mã giảm giá" |
+| Q-D02-01 | D02 | Trần giảm của mã % | Glossary có thuật ngữ "Trần giảm tối đa" nhưng Spec Function D không nêu. Mã giảm theo % có áp dụng trần giảm không? | A. Mọi mã % bắt buộc có trần giảm<br>B. Trần giảm là tùy chọn, cấu hình riêng từng mã<br>C. Không áp dụng trần giảm |
+| Q-D03-01 | D03 | Cơ sở tính đơn tối thiểu | Giá trị đơn hàng dùng để so với ngưỡng tối thiểu được tính trên cơ sở nào? | A. Tạm tính tiền hàng, chưa gồm phí ship<br>B. Tổng tiền gồm cả phí ship |
+| Q-D03-02 | D03 | Phép so sánh tại ngưỡng | Đơn hàng có giá trị đúng bằng ngưỡng tối thiểu thì có được áp mã không? | A. Có (điều kiện >=)<br>B. Không (điều kiện >) |
+| Q-D04-01 | D04 | Thời điểm hết hạn trong ngày | Mã có "ngày hết hạn" thì hết hiệu lực vào thời điểm nào của ngày đó? | A. Hết hạn lúc 23:59:59 của ngày hết hạn<br>B. Hết hạn lúc 00:00:00 của ngày hết hạn |
+| Q-D04-02 | D04 | Ngày bắt đầu và múi giờ | Mã có ngày bắt đầu hiệu lực không, và mốc thời gian tính theo múi giờ nào? | A. Có ngày bắt đầu, tính theo giờ Việt Nam (UTC+7)<br>B. Không có ngày bắt đầu, tính theo giờ Việt Nam (UTC+7)<br>C. Tính theo múi giờ khác (ghi rõ) |
+| Q-D05-01 | D05 | Tổng lượt dùng toàn hệ thống | Mỗi mã có giới hạn tổng lượt dùng trên toàn hệ thống không? | A. Có, khi hết lượt thì báo lỗi riêng "hết lượt"<br>B. Có, khi hết lượt thì báo lỗi chung "mã không hợp lệ"<br>C. Không giới hạn tổng lượt |
+| Q-D06-01 | D06 | Lượt dùng mỗi khách hàng | Mỗi tài khoản khách hàng được dùng một mã tối đa bao nhiêu lần? | A. 1 lần/tài khoản<br>B. Cấu hình riêng từng mã<br>C. Không giới hạn |
+| Q-D07-01 | D07 | Đối tượng áp dụng | Khách vãng lai phải đăng nhập khi thanh toán. Ngoài điều kiện đăng nhập, mã có giới hạn theo nhóm khách (ví dụ khách mới, khách cũ) không? | A. Mọi khách đã đăng nhập đều dùng được<br>B. Có mã chỉ dành cho nhóm khách nhất định |
+| Q-D08-01 | D08 | Phạm vi sản phẩm | Mã áp dụng cho phạm vi sản phẩm nào? | A. Toàn bộ giỏ hàng<br>B. Chỉ một số danh mục/sản phẩm cấu hình theo mã |
+| Q-D08-02 | D08 | Giỏ hàng lẫn sản phẩm | Nếu mã giới hạn phạm vi và giỏ có cả sản phẩm thuộc và không thuộc phạm vi thì tiền giảm tính thế nào? | A. Chỉ tính trên sản phẩm thuộc phạm vi<br>B. Tính trên toàn bộ giỏ hàng<br>C. Không cho áp mã |
+| Q-D09-01 | D09 | Cộng dồn mã | Một đơn hàng được áp dụng tối đa bao nhiêu mã? | A. Tối đa 1 mã<br>B. Nhiều mã cùng lúc |
+| Q-D09-02 | D09 | Nhập mã mới khi đã có mã | Khi đơn đã áp 1 mã, khách nhập mã khác rồi bấm Áp dụng thì hệ thống xử lý thế nào? | A. Mã mới thay thế mã cũ<br>B. Báo lỗi, yêu cầu gỡ mã cũ trước<br>C. Cộng dồn cả hai mã |
+| Q-D10-01 | D10 | Hoa/thường và khoảng trắng | Hệ thống xử lý mã nhập có chữ thường hoặc khoảng trắng đầu/cuối thế nào? | A. Không phân biệt hoa/thường và tự cắt khoảng trắng<br>B. Phân biệt hoa/thường, tự cắt khoảng trắng<br>C. Phân biệt hoa/thường, không cắt khoảng trắng |
+| Q-D10-02 | D10 | Ô mã rỗng, độ dài, ký tự | Khi ô mã để trống hoặc chứa ký tự đặc biệt/quá dài thì hệ thống xử lý thế nào? | A. Vô hiệu nút Áp dụng khi ô trống; chặn ký tự đặc biệt và giới hạn độ dài ở ô nhập<br>B. Cho bấm Áp dụng và hiển thị thông báo lỗi |
+| Q-D11-01 | D11 | Làm tròn tiền giảm | Tài liệu nêu "làm tròn theo quy ước hiển thị" nhưng không nêu quy tắc. Tiền giảm của mã % có phần lẻ được làm tròn thế nào? | A. Làm tròn xuống đến 1 đồng<br>B. Làm tròn số học đến 1 đồng<br>C. Làm tròn đến hàng nghìn đồng |
+| Q-D12-01 | D12 | Tiền giảm vượt tiền hàng | Khi mã cố định có giá trị lớn hơn tiền hàng thì hệ thống xử lý thế nào? | A. Tiền giảm bằng tiền hàng, tổng tiền hàng về 0<br>B. Không cho áp mã, hiển thị lỗi |
+| Q-D13-01 | D13 | Phân loại thông báo lỗi | Thông báo lỗi có tách theo từng nguyên nhân (không tồn tại, hết hạn, chưa đủ đơn tối thiểu, hết lượt) không? | A. Mỗi nguyên nhân một thông báo riêng (BA cung cấp nội dung)<br>B. Dùng chung một thông báo |
+| Q-D13-02 | D13 | Vị trí thông báo lỗi | Thông báo lỗi hiển thị ở đâu? | A. Ngay dưới ô "Mã giảm giá"<br>B. Dạng toast/popup |
+| Q-D14-01 | D14 | Thời điểm trừ lượt dùng | Lượt dùng của mã được trừ vào thời điểm nào? | A. Khi bấm Áp dụng thành công<br>B. Khi đặt hàng thành công<br>C. Giữ chỗ khi Áp dụng, trừ chính thức khi đặt hàng thành công |
+| Q-D15-01 | D15 | Hoàn lượt khi hủy đơn | Khi đơn đã dùng mã bị hủy thì lượt dùng mã có được hoàn lại không? | A. Có hoàn lượt<br>B. Không hoàn lượt |
+| Q-D15-02 | D15 | Hoàn lượt khi thanh toán thất bại | Khi thanh toán thẻ/Ví ShopGo thất bại thì lượt dùng mã xử lý thế nào? | A. Hoàn lượt, khách áp lại được<br>B. Mất lượt |
+| Q-D16-01 | D16 | Sửa giỏ sau khi áp mã | Sau khi áp mã, khách sửa giỏ làm đơn xuống dưới ngưỡng tối thiểu thì hệ thống xử lý thế nào? | A. Tự gỡ mã và thông báo cho khách<br>B. Giữ mã, chặn khi bấm Đặt hàng<br>C. Giữ nguyên tiền giảm |
+| Q-D16-02 | D16 | Tính lại tiền giảm | Sau khi áp mã %, khách đổi số lượng sản phẩm (vẫn đạt ngưỡng) thì tiền giảm có được tính lại không? | A. Tự tính lại theo giỏ mới<br>B. Giữ nguyên số tiền giảm ban đầu |
+| Q-D16-03 | D16 | Phiên hết hạn | Khi phiên đăng nhập hết hạn sau khi đã áp mã, đăng nhập lại thì mã có được giữ không? | A. Giữ mã đã áp<br>B. Mất mã, khách phải áp lại |
+| Q-D17-01 | D17 | Gỡ mã | Trang Thanh toán có chức năng gỡ mã đã áp không? | A. Có nút gỡ mã, tổng tiền tính lại ngay<br>B. Không có nút gỡ, chỉ thay bằng mã khác |
+| Q-D18-01 | D18 | Đồng thời ở lượt cuối | Khi mã còn 1 lượt và 2 khách cùng bấm Đặt hàng gần như đồng thời thì kết quả thế nào? | A. Chỉ 1 đơn thành công, đơn còn lại báo hết lượt<br>B. Cả 2 đơn thành công |
+| Q-D19-01 | D19 | Kiểm tra lại khi đặt hàng | Hệ thống có kiểm tra lại hiệu lực mã khi bấm Đặt hàng không (mã hết hạn hoặc bị Admin tắt sau khi đã áp)? | A. Có kiểm tra lại, chặn đặt hàng và báo lỗi<br>B. Có kiểm tra lại, tự gỡ mã và cho đặt hàng với giá gốc<br>C. Không kiểm tra lại |
+| Q-D20-01 | D20 | Mã và phí vận chuyển | Tiền giảm của mã được trừ vào đâu? | A. Chỉ trừ vào tiền hàng, phí ship tính riêng<br>B. Trừ vào tổng tiền gồm cả phí ship |
+| Q-D20-02 | D20 | Đổi địa chỉ giao | Khi đổi địa chỉ giao làm thay đổi phí ship sau khi đã áp mã thì mã có được kiểm tra lại không? | A. Có, kiểm tra và tính lại<br>B. Không, giữ nguyên mã và tiền giảm |
+| Q-D21-01 | D21 | Giới hạn thử sai | Hệ thống có giới hạn số lần nhập mã sai liên tiếp không? | A. Có, khóa tạm thời sau N lần sai (BA cung cấp N và thời gian khóa)<br>B. Không giới hạn |
+| Q-D21-02 | D21 | Nơi tính tiền giảm | Tiền giảm được tính và xác nhận ở đâu? | A. Máy chủ tự tính, bỏ qua giá trị gửi từ giao diện<br>B. Dùng giá trị giao diện gửi lên |
+| Q-D22-01 | D22 | Trạng thái chờ và timeout | Khi đang kiểm tra mã, giao diện xử lý thế nào? | A. Hiển thị loading, khóa nút Áp dụng, có timeout và thông báo lỗi khi quá hạn (BA cung cấp thời gian)<br>B. Không khóa nút, không có timeout |
+| Q-D23-01 | D23 | Lưu vết mã trên đơn | Thông tin mã và số tiền giảm có được hiển thị trên chi tiết đơn hàng và email/SMS xác nhận không? | A. Có, hiển thị mã và số tiền giảm<br>B. Chỉ hiển thị số tiền giảm<br>C. Không hiển thị |
+| Q-X01-01 | X01 | Thị trường khách hàng | `INPUT/Spec Function D.md` và `INPUT/Hệ thống Thương mại điện tử “ShopGo”.md` nêu khách mua hàng tại Việt Nam, nhưng `INPUT/chat.md` nêu có thể mua hàng ở Nhật Bản. Phạm vi khách hàng của Function D là gì? | A. Chỉ khách tại Việt Nam<br>B. Cả khách tại Việt Nam và Nhật Bản |
+| Q-X01-02 | X01 | Tiền tệ, múi giờ khi mua từ Nhật Bản | Nếu khách tại Nhật Bản được mua hàng, tiền tệ và múi giờ hiệu lực mã áp dụng thế nào? | A. Vẫn VND và giờ Việt Nam (UTC+7)<br>B. Theo tiền tệ và múi giờ của Nhật Bản<br>C. Không áp dụng vì chỉ bán tại Việt Nam |
